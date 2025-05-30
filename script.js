@@ -49,3 +49,18 @@ function: playGame()
    The winner has higher score after 5 rounds.
 
 */
+
+// Initialize score trackers for players
+let humanScore = 0;
+let computerScore = 0;
+
+function getComputerChoice() {
+    let num = Math.floor(Math.random()*3) + 1;
+    if (num == 1) {
+        return "Rock";
+    } else if (num == 2) {
+        return "Paper";
+    } else {
+        return "Scissors";
+    }
+}
