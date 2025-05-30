@@ -1,4 +1,4 @@
 # odin-rps
 Third project in "The Odin Project: Foundations" course
 
-A basic Rock, Paper, Scissors game written in Javascript and played in the console
+A basic Javascript game that can be played in the console
