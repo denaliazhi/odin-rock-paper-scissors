@@ -50,6 +50,9 @@ function: playGame()
 
 */
 
+// Initialize total rounds
+const ROUNDS = 5;
+
 // Initialize score trackers for players
 let humanScore = 0;
 let computerScore = 0;
@@ -77,21 +80,38 @@ function playRound(humanChoice, computerChoice) {
         console.log("You win! Rock beats scissors.");
         humanScore++;
     } else if (humanChoice == "rock" && computerChoice == "paper") {
-        console.log("You lose! Paper beats rock.");
+        console.log("You lose! Rock get beaten by paper.");
         computerScore++;
     } else if (humanChoice == "scissors" && computerChoice == "paper") {
         console.log("You win! Scissors beats paper.");
         humanScore++;
     } else if (humanChoice == "scissors" && computerChoice == "rock"){
-        console.log("You lose! Rock beats scissors.");
+        console.log("You lose! Scissors gets beaten by rock.");
         computerScore++;
     } else if (humanChoice == "paper" && computerChoice == "rock"){
         console.log("You win! Paper beats rock.");
         humanScore++;
     } else if (humanChoice == "paper" && computerChoice == "scissors"){
-        console.log("You lose! Scissors beats paper.");
+        console.log("You lose! Paper gets beaten by scissors.");
         computerScore++;
     } else {
         console.log("It's a draw.");
     }
 }
+
+function playGame() {
+    for (let i = 0; i < ROUNDS; i++) {
+        console.log(`-- Round ${i + 1} of ${ROUNDS} --
+            Human: ${humanScore}
+            Computer: ${computerScore}`)
+
+        const humanPick = getHumanChoice();
+        const computerPick = getComputerChoice();
+       
+        playRound(humanPick, computerPick);
+    }
+    let result = "Game over..." + (humanScore > computerScore ? "You win!" : "You lose :(");
+    console.log(result);
+}
+
+playGame();
