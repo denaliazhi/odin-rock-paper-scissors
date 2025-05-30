@@ -69,3 +69,31 @@ function getHumanChoice() {
     let input = prompt("Pick your hand:", "'Rock', 'Paper' or 'Scissors'");
     return input;
 }
+
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice == "Rock" && computerChoice == "Scissors"){
+        console.log("You win! Rock beats scissors.");
+        humanScore++;
+    } else if (humanChoice == "Rock" && computerChoice == "Paper") {
+        console.log("You lose! Paper beats rock.");
+        computerScore++;
+    } else if (humanChoice == "Scissors" && computerChoice == "Paper") {
+        console.log("You win! Scissors beats paper.");
+        humanScore++;
+    } else if (humanChoice == "Scissors" && computerChoice == "Rock"){
+        console.log("You lose! Rock beats scissors.");
+        computerScore++;
+    } else if (humanChoice == "Paper" && computerChoice == "Rock"){
+        console.log("You win! Paper beats rock.");
+        humanScore++;
+    } else if (humanChoice == "Paper" && computerChoice == "Scissors"){
+        console.log("You lose! Scissors beats paper.");
+        computerScore++;
+    } else {
+        console.log("It's a draw.");
+    }
+}
+
+let humanChoice = "Rock";
+let computerChoice = "Paper";
+playRound(humanChoice, computerChoice);
