@@ -64,3 +64,8 @@ function getComputerChoice() {
         return "Scissors";
     }
 }
+
+function getHumanChoice() {
+    let input = prompt("Pick your hand:", "'Rock', 'Paper' or 'Scissors'");
+    return input;
+}
