@@ -99,19 +99,26 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-function playGame() {
-    for (let i = 0; i < ROUNDS; i++) {
-        console.log(`-- Round ${i + 1} of ${ROUNDS} --
-            Human: ${humanScore}
-            Computer: ${computerScore}`)
+// function playGame() {
+//     for (let i = 0; i < ROUNDS; i++) {
+//         console.log(`-- Round ${i + 1} of ${ROUNDS} --
+//             Human: ${humanScore}
+//             Computer: ${computerScore}`)
 
-        const humanPick = getHumanChoice();
-        const computerPick = getComputerChoice();
+//         const humanPick = getHumanChoice();
+//         const computerPick = getComputerChoice();
        
-        playRound(humanPick, computerPick);
-    }
-    let result = "Game over..." + (humanScore > computerScore ? "You win!" : "You lose :(");
-    console.log(result);
-}
+//         playRound(humanPick, computerPick);
+//     }
+//     let result = "Game over..." + (humanScore > computerScore ? "You win!" : "You lose :(");
+//     console.log(result);
+// }
 
-playGame();
+// playGame();
+
+const choice = document.querySelector(".choices");
+
+choice.addEventListener("click", (e) => {
+    playRound(e.target.textContent, getComputerChoice());
+})
+
