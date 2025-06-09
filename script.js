@@ -52,6 +52,7 @@ function: playGame()
 
 // Initialize total rounds
 const ROUNDS = 5;
+let played = 0;
 
 // Initialize score trackers for players
 let humanScore = 0;
@@ -79,49 +80,47 @@ function playRound(humanChoice, computerChoice) {
 
     if (humanChoice == "rock" && computerChoice == "scissors"){
         result.textContent = "You win! Rock beats scissors.";
-        humanScore++;
+        ++humanScore;
     } else if (humanChoice == "rock" && computerChoice == "paper") {
         result.textContent = "You lose! Rock get beaten by paper.";
-        computerScore++;
+        ++computerScore;
     } else if (humanChoice == "scissors" && computerChoice == "paper") {
         result.textContent = "You win! Scissors beats paper.";
-        humanScore++;
+        ++humanScore;
     } else if (humanChoice == "scissors" && computerChoice == "rock"){
         result.textContent = "You lose! Scissors gets beaten by rock.";
-        computerScore++;
+        ++computerScore;
     } else if (humanChoice == "paper" && computerChoice == "rock"){
         result.textContent = "You win! Paper beats rock.";
-        humanScore++;
+        ++humanScore;
     } else if (humanChoice == "paper" && computerChoice == "scissors"){
         result.textContent = "You lose! Paper gets beaten by scissors.";
-        computerScore++;
+        ++computerScore;
     } else {
         result.textContent = "It's a draw.";
     }
-    gameStatus.appendChild(result);
+    roundResults.appendChild(result);
 }
 
-// function playGame() {
-//     for (let i = 0; i < ROUNDS; i++) {
-//         console.log(`-- Round ${i + 1} of ${ROUNDS} --
-//             Human: ${humanScore}
-//             Computer: ${computerScore}`)
-
-//         const humanPick = getHumanChoice();
-//         const computerPick = getComputerChoice();
-       
-//         playRound(humanPick, computerPick);
-//     }
-//     let result = "Game over..." + (humanScore > computerScore ? "You win!" : "You lose :(");
-//     console.log(result);
-// }
-
-// playGame();
-
 const choice = document.querySelector(".choices");
-const gameStatus = document.querySelector(".game-status");
+const roundResults = document.querySelector(".round-results");
+const human = document.querySelector(".human");
+const computer = document.querySelector(".computer");
 
 choice.addEventListener("click", (e) => {
-    playRound(e.target.textContent, getComputerChoice());
+    if (played == ROUNDS) {
+        const gameResult = document.createElement("p")
+        gameResult.textContent = "Game over..." + ((humanScore > computerScore ? "You win!" : 
+            (humanScore == computerScore ? "It's a draw." : "You lose.")))
+            + ` Final score: H${humanScore} | C${computerScore}`;
+        roundResults.append(gameResult);
+        played = humanScore = computerScore = 0;
+    } else {
+        playRound(e.target.textContent, getComputerChoice());
+        played++;
+    }
+    human.textContent = humanScore;
+    computer.textContent = computerScore;
 })
+
 
