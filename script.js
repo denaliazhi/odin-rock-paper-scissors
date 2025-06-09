@@ -112,7 +112,7 @@ choice.addEventListener("click", (e) => {
         const gameResult = document.createElement("p")
         gameResult.textContent = "Game over..." + ((humanScore > computerScore ? "You win!" : 
             (humanScore == computerScore ? "It's a draw." : "You lose.")))
-            + ` Final score: H${humanScore} | C${computerScore}`;
+            + `\nFinal score: H${humanScore} - C${computerScore}`;
         roundResults.append(gameResult);
         played = humanScore = computerScore = 0;
     } else {

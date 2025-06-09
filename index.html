@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Rock, Paper, Scissors</h1>
@@ -12,18 +13,22 @@
         <button>Paper</button>
         <button>Scissors</button>
     </div>
-    <div>
-        <h2>Score</h2>
-        <div>
-            <p>Human:</p>
-            <p class = "human">0</p>
+    <div class="game">
+        <div class="scoreboard">
+            <h2>Score</h2>
+            <div>
+                <h4>Human:</h4>
+                <p class = "human">0</p>
+            </div>
+            <div>
+                <h4>Computer:</h4>
+                <p class = "computer">0</p>
+            </div>
         </div>
-        <div>
-            <p>Computer:</p>
-            <p class = "computer">0</p>
+        <div class="round-results">
+            <h2>Results</h2>
         </div>
     </div>
-    <div class="round-results"></div>
     <script src="script.js"></script>
 </body>
 </html>
