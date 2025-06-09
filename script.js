@@ -75,28 +75,30 @@ function getHumanChoice() {
 
 function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
+    const result = document.createElement("p");
 
     if (humanChoice == "rock" && computerChoice == "scissors"){
-        console.log("You win! Rock beats scissors.");
+        result.textContent = "You win! Rock beats scissors.";
         humanScore++;
     } else if (humanChoice == "rock" && computerChoice == "paper") {
-        console.log("You lose! Rock get beaten by paper.");
+        result.textContent = "You lose! Rock get beaten by paper.";
         computerScore++;
     } else if (humanChoice == "scissors" && computerChoice == "paper") {
-        console.log("You win! Scissors beats paper.");
+        result.textContent = "You win! Scissors beats paper.";
         humanScore++;
     } else if (humanChoice == "scissors" && computerChoice == "rock"){
-        console.log("You lose! Scissors gets beaten by rock.");
+        result.textContent = "You lose! Scissors gets beaten by rock.";
         computerScore++;
     } else if (humanChoice == "paper" && computerChoice == "rock"){
-        console.log("You win! Paper beats rock.");
+        result.textContent = "You win! Paper beats rock.";
         humanScore++;
     } else if (humanChoice == "paper" && computerChoice == "scissors"){
-        console.log("You lose! Paper gets beaten by scissors.");
+        result.textContent = "You lose! Paper gets beaten by scissors.";
         computerScore++;
     } else {
-        console.log("It's a draw.");
+        result.textContent = "It's a draw.";
     }
+    gameStatus.appendChild(result);
 }
 
 // function playGame() {
@@ -117,6 +119,7 @@ function playRound(humanChoice, computerChoice) {
 // playGame();
 
 const choice = document.querySelector(".choices");
+const gameStatus = document.querySelector(".game-status");
 
 choice.addEventListener("click", (e) => {
     playRound(e.target.textContent, getComputerChoice());
